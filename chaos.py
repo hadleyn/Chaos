@@ -4,6 +4,8 @@ from kivy.clock import Clock
 from kivy.graphics import Color, Ellipse
 import random
 import math
+from kivy import Config
+Config.set('graphics', 'multisamples', '0')
 
 class Sphere(Widget):
 
