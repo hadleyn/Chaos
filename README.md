@@ -1,4 +1,4 @@
-## Chaos
+# Chaos
 
 Chaos is a simple game demonstrating graphical python code using [Kivy](https://github.com/kivy/kivy).
 
@@ -24,7 +24,7 @@ python -m pip install kivy
 
 =======
 
-# To run on a Mac
+## To run on a Mac
 
 Download [Kivy](https://kivy.org/downloads/1.10.0/Kivy-1.10.0.tar.gz)
 Install it. To run your application at the prompt, type `kivy <your_app_name.py>`
