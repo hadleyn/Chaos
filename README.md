@@ -1,4 +1,4 @@
-# Chaos
+## Chaos
 
 Chaos is a simple game demonstrating graphical python code using [Kivy](https://github.com/kivy/kivy).
 
@@ -21,3 +21,10 @@ python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 python -m pip install kivy
 ```
 3. Now you should be able to run chaos at the command prompt by typing `python chaos.py`
+
+=======
+
+# To run on a Mac
+
+Download [Kivy](https://kivy.org/downloads/1.10.0/Kivy-1.10.0.tar.gz)
+Install it. To run your application at the prompt, type `kivy <your_app_name.py>`
