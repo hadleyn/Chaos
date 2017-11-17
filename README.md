@@ -20,3 +20,4 @@ python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 
 python -m pip install kivy
 ```
+3. Now you should be able to run chaos at the command prompt by typing `python chaos.py`
