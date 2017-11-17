@@ -19,7 +19,7 @@ class Sphere(Widget):
         self.y_velocity = random.randint(2,5) * random.choice(delta)
 
         # How big is it?
-        self.diameter = 30
+        self.diameter = 15
 
         # Where is it?
         self.x_position = 0
@@ -55,7 +55,7 @@ class Sphere(Widget):
             self.x_velocity *= -1
 
     def expandSphere(self):
-        if self.diameter > 0 and self.diameter < 300:
+        if self.diameter < 150:
             self.diameter = self.diameter + 1
             self.x_position = self.x_position - 1 + math.pow(1/math.sqrt(2), 2)
             self.y_position = self.y_position - 1 + math.pow(1/math.sqrt(2), 2)
@@ -63,10 +63,10 @@ class Sphere(Widget):
             self.destroy = True
 
     def contractSphere(self):
-        if self.diameter > 0:
+        if self.diameter >= 0:
             self.diameter = self.diameter - 4
-            self.x_position = self.x_position + 2 + math.pow(1/2*math.sqrt(32), 2)
-            self.y_position = self.y_position + 2 + math.pow(1/2*math.sqrt(32), 2)
+            self.x_position = self.x_position + 2 + math.pow(1/16*math.sqrt(32), 2)
+            self.y_position = self.y_position + 2 + math.pow(1/16*math.sqrt(32), 2)
 
     def collidingWith(self, otherSphere):
         deltax = (otherSphere.x_position+otherSphere.diameter/2) - (self.x_position + self.diameter/2)
@@ -83,8 +83,8 @@ class Chaos(Widget):
     def initialize(self):
         for i in range(50):
             s = Sphere()
-            s.x_position = random.random() * 1000
-            s.y_position = random.random() * 1000
+            s.x_position = random.random() * 500
+            s.y_position = random.random() * 500
             self.spheres.append(s)
 
     def updateSphereGraphics(self):
@@ -116,8 +116,8 @@ class Chaos(Widget):
             s = Sphere()
 
             # Place it on the location we clicked
-            s.x_position = mouseClickPosition.x - 15
-            s.y_position = mouseClickPosition.y - 15
+            s.x_position = mouseClickPosition.x - s.diameter / 2
+            s.y_position = mouseClickPosition.y - s.diameter / 2
 
             # Is this sphere fixed in position? Yes it is.
             s.fixed = True
@@ -132,7 +132,7 @@ class ChaosApp(App):
     def build(self):
         game = Chaos()
         game.initialize()
-        Clock.schedule_interval(game.update, (1/60))
+        Clock.schedule_interval(game.update, (1/30))
         return game
 
 if __name__ == '__main__':
