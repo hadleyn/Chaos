@@ -11,12 +11,14 @@ class Sphere(Widget):
         # Let's describe some things about the sphere
 
         # What color is it?
-        self.color = (random.random(), 1, 1)
+        self.colorRed = random.random()
+        self.colorGreen = random.random()
+        self.colorBlue = random.random()
 
         # How fast is it moving and in what direction?
         delta = [-1, 1]
-        self.x_velocity = random.randint(2,5) * random.choice(delta)
-        self.y_velocity = random.randint(2,5) * random.choice(delta)
+        self.x_velocity = random.randint(2,6) * random.choice(delta)
+        self.y_velocity = random.randint(2,6) * random.choice(delta)
 
         # How big is it?
         self.diameter = 30
@@ -43,7 +45,7 @@ class Sphere(Widget):
 
         # Sphere has been updated, redraw it
         with canvas:
-            Color(*self.color, mode='hsv')
+            Color(self.colorRed, self.colorGreen, self.colorBlue, 1, mode='rgba')
             self.e = Ellipse(pos=(self.x_position, self.y_position), size=(self.diameter, self.diameter))
 
     def moveSphere(self, game):
@@ -83,7 +85,7 @@ class Chaos(Widget):
     def initialize(self):
         for i in range(50):
             s = Sphere()
-            s.x_position = random.random() * 1000
+            s.x_position = random.random() * 1200
             s.y_position = random.random() * 1000
             self.spheres.append(s)
 
